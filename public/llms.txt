@@ -1,0 +1,94 @@
+# Aurral
+
+> Self-hosted music discovery server. Reads your library and listening history, builds
+> personalised recommendations and scheduled playlist flows, then downloads the tracks to
+> your own music server. Works alongside Lidarr or entirely standalone.
+
+Site: https://www.aurral.com
+
+## Feature documentation
+
+- [Overview](https://www.aurral.com/features): every feature in one place
+- [Discover: how recommendations are built](https://www.aurral.com/discover): seed artists, ranking, discovery modes
+- [Flows: scheduled playlist flows](https://www.aurral.com/flows): source mix, Focus, Deep Dive
+- [Playlists and imports](https://www.aurral.com/playlists): Spotify, YouTube Music, Last.fm, ListenBrainz, JSON
+- [Quality profiles and upgrades](https://www.aurral.com/quality): FLAC and MP3 tiers, cutoff, file verification
+- [Getting started with Docker Compose](https://www.aurral.com/getting-started): one container, one port
+- [All integrations](https://www.aurral.com/integrations): 15 integrations across 5 groups
+- [Glossary](https://www.aurral.com/glossary): 15 terms defined plainly
+
+## Integrations
+
+### Library
+
+- [Lidarr](https://www.aurral.com/integrations/lidarr): optional. Hand artist and album management over, keep discovery on Aurral.
+- [MusicBrainz](https://www.aurral.com/integrations/musicbrainz): canonical release metadata and the artist identifiers everything keys on.
+
+### Downloads
+
+- [slskd / Soulseek](https://www.aurral.com/integrations/slskd): peer-to-peer client with an HTTP API Aurral can drive.
+- [yt-dlp](https://www.aurral.com/integrations/yt-dlp): pulls audio from sources that expose a direct URL. Never used for upgrades.
+- [deemix](https://www.aurral.com/integrations/deemix): downloads land in review more often, because identity is harder to prove.
+- [Usenet](https://www.aurral.com/integrations/usenet): SABnzbd and NZBGet, driven through their queue APIs.
+
+### Playback
+
+- [Navidrome](https://www.aurral.com/integrations/navidrome): playlist publishing plus Subsonic compatibility for every client.
+- [Plex](https://www.aurral.com/integrations/plex): playlists land in the playlist owner's own Plex account.
+- [Jellyfin](https://www.aurral.com/integrations/jellyfin): published as a private playlist under the matching Jellyfin user.
+- [Subsonic clients](https://www.aurral.com/integrations/subsonic): the /rest endpoint that makes phone apps work.
+
+### Listening history
+
+- [Last.fm](https://www.aurral.com/integrations/lastfm): better similar-artist matches than any keyless alternative.
+- [ListenBrainz](https://www.aurral.com/integrations/listenbrainz): keyless by default. Great for scrobbling, weaker for similarity.
+- [Koito](https://www.aurral.com/integrations/koito): point Aurral at a self-hosted Koito URL and read history from there.
+
+### Alerts and shows
+
+- [Ticketmaster](https://www.aurral.com/integrations/ticketmaster): nearby concerts for artists in your library.
+- [Notifications](https://www.aurral.com/integrations/notifications): Gotify and generic webhooks for flow completion and new releases.
+
+## Use cases
+
+### Setting up
+
+- [Installing Aurral for the first time](https://www.aurral.com/scenarios/first-install): the whole path in order
+- [Fixing media path mounts](https://www.aurral.com/scenarios/media-paths): why Aurral does not see the music Lidarr sees
+- [Planning disk for lossless](https://www.aurral.com/scenarios/disk-planning): what a quality profile actually costs
+- [Fixing UID and GID problems](https://www.aurral.com/scenarios/permissions): why downloads are unreadable after the container writes them
+- [Behind a reverse proxy](https://www.aurral.com/scenarios/reverse-proxy): HTTPS with SSO, and the address mismatch that breaks phone apps
+- [Listening from your phone](https://www.aurral.com/scenarios/remote-playback): app passwords, the connect QR code, Subsonic clients
+
+### Getting more out of it
+
+- [When your library stopped being fun](https://www.aurral.com/scenarios/library-too-big): 40,000 tracks and the same forty played
+- [Going deeper without the slop](https://www.aurral.com/scenarios/dig-deeper): Deep Dive, Focus and discovery modes together
+- [Building a flow around one decade](https://www.aurral.com/scenarios/decades): year ranges and why they only apply to Focus
+- [A weekly routine that runs itself](https://www.aurral.com/scenarios/weekly-refresh): make it feel like Discover Weekly
+- [Never miss a new album again](https://www.aurral.com/scenarios/new-releases): monitoring, the Inbox, release feeds
+
+### Moving and sharing
+
+- [Moving off Spotify](https://www.aurral.com/scenarios/leave-spotify): what breaks when you cancel, and what cannot be replaced
+- [Importing playlists from other services](https://www.aurral.com/scenarios/import-playlists): what each provider gives you
+- [Moving to a new machine](https://www.aurral.com/scenarios/move-hosts): migrate without re-downloading anything
+- [Sharing one library with other people](https://www.aurral.com/scenarios/multi-user): per-user taste over a shared library
+
+## Comparisons
+
+- [Aurral vs Lidarr](https://www.aurral.com/compare/lidarr): which one handles music discovery
+- [Aurral vs Spotify](https://www.aurral.com/compare/spotify): owning the catalogue or renting it
+- [Aurral vs Navidrome](https://www.aurral.com/compare/navidrome): discovery layer or music server
+- [Aurral vs Jellyseerr for music](https://www.aurral.com/compare/jellyseerr): requests or discovery
+
+## Free browser tools
+
+- [Spotify CSV to JSON converter](https://www.aurral.com/tools/spotify-csv-converter): convert an Exportify CSV for playlist import
+- [Flow size calculator](https://www.aurral.com/tools/playlist-calculator): the right track count for your library
+- [Quality profile advisor](https://www.aurral.com/tools/quality-advisor): FLAC vs MP3 cost in disk and bandwidth
+- [Lidarr custom list builder](https://www.aurral.com/tools/lidarr-feed-builder): compose the feed URL and public address
+
+## Optional
+
+- [Source on GitHub](https://github.com/LeonaDavinci/aurral)

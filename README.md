@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurral
 
-## Getting Started
+Marketing and documentation site for Aurral, a self-hosted music discovery server.
 
-First, run the development server:
+Live at **https://www.aurral.com**
+
+## What this repository is
+
+A Next.js 16 App Router site built with Tailwind v4. It renders the public site only —
+the application itself is distributed as a container image and is not in this repo.
+
+## Requirements
+
+Node.js 20 or newer.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  page.tsx                 home
+  features/                feature overview hub
+  discover/                how recommendations are built
+  flows/                   scheduled playlist flows
+  playlists/               playlists and imports
+  quality/                 quality profiles and upgrades
+  getting-started/         Docker Compose install
+  integrations/
+    page.tsx               all integrations
+    [slug]/                one page per integration
+  scenarios/
+    page.tsx               use case hub
+    [slug]/                one page per situation
+  compare/
+    page.tsx               comparison hub
+    [slug]/                one page per comparison
+  tools/
+    page.tsx               tools hub
+    [slug]/                one page per tool, client side
+  glossary/                terminology
+  robots.ts                robots.txt
+  sitemap.ts               sitemap.xml
+  manifest.ts              web app manifest
+  icon.svg                 favicon
+  not-found.tsx            404 page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+  nav.tsx                  site header, client component
+  footer.tsx               site footer
+  page.tsx                 shared page furniture
+  jsonld.tsx               JSON-LD builders
+  csv-converter.tsx        tool: Spotify CSV to JSON
+  playlist-calculator.tsx  tool: flow size calculator
+  quality-advisor.tsx      tool: quality profile advisor
+  lidarr-feed-builder.tsx  tool: Lidarr custom list builder
 
-## Learn More
+lib/
+  content.ts               site copy, entities, scenarios, tools, glossary
+  entity-content.ts        long-form content per integration
+  scenario-content.ts      long-form content per use case
+  comparison-content.ts    long-form content per comparison
 
-To learn more about Next.js, take a look at the following resources:
+public/
+  llms.txt                 machine-readable site index
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Content lives in `lib/` rather than inside page components so that copy can be reused
+across pages and revised without touching layout code.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a page
 
-## Deploy on Vercel
+**An integration page.** Add an entry to `ENTITY_GROUPS` in `lib/content.ts`, then add a
+matching block to `ENTITY_CONTENT` in `lib/entity-content.ts`. The route is generated
+automatically. `dynamicParams` is off, so an entity without content returns a 404 rather
+than a thin page.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**A use case page.** Same pattern: add to `SCENARIOS` in `lib/content.ts` and to
+`SCENARIO_CONTENT` in `lib/scenario-content.ts`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**A comparison page.** Add to `COMPARISONS` and to `COMPARISON_CONTENT`.
+
+**A tool page.** Create the directory and its page, add the entry to `TOOLS`, and write
+the interactive part as a client component in `components/`.
+
+After any of these, update `app/sitemap.ts` if the section is not already covered by a
+loop, and add the page to `public/llms.txt`.
+
+## SEO notes
+
+Three things here are deliberate and should not be casually changed.
+
+**`robots.ts` and `sitemap.ts` are framework routes.** They return real
+`text/plain` and `application/xml` responses with correct status codes. Do not add a
+catch-all rewrite or SPA fallback in front of them, or every static path will start
+returning HTML, which is what breaks crawling.
+
+**Every page carries its own canonical, title and description.** Titles target a
+specific long-tail query rather than a brand name plus the feature name. If you add a
+page, write the target query first.
+
+**JSON-LD is attached per page.** `components/jsonld.tsx` holds the builders. Pages that
+export FAQ content also export `FAQPage` so the questions can surface in results. Keep
+the two in sync.
+
+## Tools
+
+The four tools run entirely in the browser. There is no server endpoint that receives
+a file, which is deliberate: playlist exports are personal data and should not need to
+be trusted to a third party.
+
+If you add a tool, keep that property. No `fetch`, no form post, no analytics on the
+file input.
+
+## Writing style
+
+- English, second person, present tense.
+- Concrete numbers over adjectives. "30 tracks, one day a week" beats "a perfect
+  weekly routine".
+- Explain the mechanism, not the benefit. Readers are running this on their own
+  hardware and want to know what a setting actually does.
+- No superlatives, no urgency framing, no marketing voice. The site is the product
+  documentation; if it reads like an ad, it belongs somewhere else.
+
+## License
+
+MIT.
