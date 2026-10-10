@@ -12,8 +12,8 @@ export function Footer() {
             <span>{SITE.name}</span>
           </Link>
           <p className="mt-3 max-w-xs text-[15px] text-muted">
-            Self-hosted music discovery. Recommendations and scheduled flows,
-            running on your own hardware against music you already own.
+            Your music library already knows you. Now it can surprise you.
+            Recommendations and scheduled flows on your own hardware.
           </p>
           <p className="mt-4 text-sm text-subtle">
             MIT licensed. Open source, self-hosted, no account required.

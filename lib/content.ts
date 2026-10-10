@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Aurral",
   url: "https://www.aurral.com",
-  tagline: "Self-hosted music discovery",
+  tagline: "Your music library already knows you. Now it can surprise you.",
   description:
     "Aurral is a self-hosted music discovery server. It reads your library and listening history, builds personalised recommendations and scheduled playlist flows, then downloads the tracks to your own music server. Works with Lidarr or entirely on its own.",
   repo: "https://github.com/LeonaDavinci/aurral",

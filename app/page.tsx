@@ -80,7 +80,7 @@ export default function Home() {
       <section className="wrap pt-16 pb-10 md:pt-24 md:pb-14">
         <p className="eyebrow">Self-hosted music discovery</p>
         <h1 className="mt-4 max-w-4xl text-[38px] md:text-[58px]">
-          Your library already knows you. Now it can surprise you.
+          Your music library already knows you. Now it can surprise you.
         </h1>
         <p className="lede mt-6 max-w-2xl">
           Aurral is a music discovery server you run yourself. It reads the music

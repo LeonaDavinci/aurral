@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Aurral — Self-Hosted Music Discovery Server",
+    default: "Aurral — Your music library already knows you. Now it can surprise you.",
     template: "%s | Aurral",
   },
   description: SITE.description,
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
-    title: "Aurral — Self-Hosted Music Discovery Server",
+    title: "Aurral — Your music library already knows you. Now it can surprise you.",
     description: SITE.description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aurral — Self-Hosted Music Discovery Server",
+    title: "Aurral — Your music library already knows you. Now it can surprise you.",
     description: SITE.description,
   },
   robots: {
