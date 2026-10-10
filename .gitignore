@@ -42,3 +42,6 @@ next-env.d.ts
 
 # build trace output
 /trace
+
+# local source material for generated screenshots
+/.tmp_assets

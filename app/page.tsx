@@ -101,6 +101,22 @@ export default function Home() {
         </p>
       </section>
 
+      <section className="wrap pb-4" aria-label="Product screenshot">
+        <figure className="overflow-hidden rounded-xl border border-[#ffffff14] bg-surface shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
+          <img
+            src="/screenshots/discover.webp"
+            alt="Aurral Discover page showing a daily mix built from your own library, recently added artists and personalised playlists"
+            width={1280}
+            height={720}
+            className="h-auto w-full"
+          />
+        </figure>
+        <p className="mt-3 text-center text-[13px] text-subtle">
+          The Discover page — your daily mix, built entirely from the music you
+          already own.
+        </p>
+      </section>
+
       <section className="chapter" aria-labelledby="problem-heading">
         <div className="wrap">
           <h2
@@ -234,6 +250,20 @@ export default function Home() {
             Connect the services you already run. One download client and one
             playback server is a working setup. Anything you leave out simply stays
             unused, and Discover still works with no API key at all.
+          </p>
+          <figure className="mt-8 overflow-hidden rounded-xl border border-[#ffffff14] bg-surface shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
+            <img
+              src="/screenshots/playback.webp"
+              alt="Aurral artist page showing popular tracks with Add to Lidarr buttons, tag filters and an Aurral pick"
+              width={1280}
+              height={720}
+              loading="lazy"
+              className="h-auto w-full"
+            />
+          </figure>
+          <p className="mt-3 text-center text-[13px] text-subtle">
+            An artist page with one-click Add to Lidarr — recommendations that
+            end as real files on your server.
           </p>
           <div className="mt-10 grid gap-8">
             {ENTITY_GROUPS.map((g) => (
