@@ -253,8 +253,8 @@ export default function Home() {
           </p>
           <figure className="mt-8 overflow-hidden rounded-xl border border-[#ffffff14] bg-surface shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
             <img
-              src="/screenshots/playback.webp"
-              alt="Aurral artist page showing popular tracks with Add to Lidarr buttons, tag filters and an Aurral pick"
+            src="/screenshots/playback.webp"
+            alt="Aurral connected services panel showing integration status for a music library, download client, playback server and listening history, with a now-playing flow and its upcoming tracks"
               width={1280}
               height={720}
               loading="lazy"

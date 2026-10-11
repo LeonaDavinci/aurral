@@ -45,3 +45,6 @@ next-env.d.ts
 
 # local source material for generated screenshots
 /.tmp_assets
+
+# generated copy of app/sitemap.ts output, kept for manual submission only
+/sitemap.xml
