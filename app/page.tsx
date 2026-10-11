@@ -262,8 +262,22 @@ export default function Home() {
             />
           </figure>
           <p className="mt-3 text-center text-[13px] text-subtle">
-            An artist page with one-click Add to Lidarr — recommendations that
-            end as real files on your server.
+            Connected services with a live now-playing flow — one download
+            client and one player is a complete setup.
+          </p>
+          <figure className="mt-10 overflow-hidden rounded-xl border border-[#ffffff14] bg-surface shadow-[0_20px_60px_-30px_rgba(0,0,0,0.8)]">
+            <img
+              src="/screenshots/album-detail.webp"
+              alt="Aurral album detail page for an album by The Weeknd, showing the cover art, FLAC quality badge, play and library actions, and a tracklist with per-track library status"
+              width={1280}
+              height={720}
+              loading="lazy"
+              className="h-auto w-full"
+            />
+          </figure>
+          <p className="mt-3 text-center text-[13px] text-subtle">
+            Every album page shows exactly what is on disk and what is still
+            missing — down to the checksum.
           </p>
           <div className="mt-10 grid gap-8">
             {ENTITY_GROUPS.map((g) => (
